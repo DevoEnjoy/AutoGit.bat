@@ -35,9 +35,11 @@ rem title AutoStaging & AutoCommit
 :notice
 rem 	230116 v0116_alpha
 rem 		- add, restore, commit, push 구현
+rem 	autoAddCommitPush
+rem 		- 극단적으로 짧게 만든 버전.
+rem 		- 모든 변경사항 스테이징, 자동커밋, 자동 푸시한다.
 
-git add .
-
+:makeDate
 FOR /F "tokens=1-4 delims=- " %%i IN ('date /t') DO SET yyyymmdd=%%i%%j%%k
 REM FOR /F "tokens=2-6 delims=/ " %%i IN ('date /t') DO SET yyyymmdd=%%k%%i%%j
 rem ECHO %yyyymmdd%
@@ -49,10 +51,16 @@ set ss=%time:~6,2%
 set hh1=%time:~0,1%
 set hh2=%time:~1,1%
 if "%hh1%" == " " set hh=0%hh2%
-
-rem echo original time = %tm%
-rem echo transformed time = %hh%%mm%
 cls
+
+:start
+echo 	[git add .]
+echo 	[git commit -m "auto push %yyyymmdd% %hh%%mm%"]
+echo 	[git push origin master]
+echo 	위 명령어를 한꺼번에 실행하는 프로그램입니다.
+echo 	실행하려면 엔터, 취소하려면 이 창을 닫아주세요
+pause
+git add .
 git commit -m "auto push %yyyymmdd% %hh%%mm%"
 git push origin master
 pause
