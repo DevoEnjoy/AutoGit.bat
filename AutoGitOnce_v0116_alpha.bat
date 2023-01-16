@@ -63,4 +63,7 @@ pause
 git add .
 git commit -m "auto push %yyyymmdd% %hh%%mm%"
 git push origin master
+echo.
+echo 	성공 여부와 무관하게, 작업이 완료되었습니다.
+echo 	위의 로그를 참고해주세요.
 pause
