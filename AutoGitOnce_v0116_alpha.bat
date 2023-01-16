@@ -60,6 +60,7 @@ echo 	[git push origin master]
 echo 	위 명령어를 한꺼번에 실행하는 프로그램입니다.
 echo 	실행하려면 엔터, 취소하려면 이 창을 닫아주세요
 pause
+cls
 git add .
 git commit -m "auto push %yyyymmdd% %hh%%mm%"
 git push origin master
