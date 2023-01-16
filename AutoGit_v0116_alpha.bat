@@ -135,6 +135,7 @@ echo ----------------------------------------------------------------------
 echo 	(현재 경로 : %cd%)
 echo 	스테이징할 폴더나 파일을 띄어쓰기로 구분하여 입력해 주세요
 echo 	ex) class .gitignore test.txt
+echo 	모든 파일 스테이징 : . 입력
 echo 	메인으로 돌아가려면 :q 입력
 set /p select=입력: 
 rem echo %select%
