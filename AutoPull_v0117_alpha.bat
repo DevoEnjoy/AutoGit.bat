@@ -41,5 +41,5 @@ rem 		- v01.17 init release
 :start
 cls
 git pull origin master
-
+rem È®ÀÎ¿ë
 pause
