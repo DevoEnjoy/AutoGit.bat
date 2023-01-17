@@ -36,6 +36,8 @@ rem title AutoStaging & AutoCommit
 :notice
 rem 	230117 0938
 rem 		- v01.17 init release
+rem 	230117 1009
+rem 		- v01.17.10 hotfix01
 
 :start
 cls
