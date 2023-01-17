@@ -1,36 +1,36 @@
 @echo off
-rem ëª…ë ¹ì–´ ë³µì°½ ë”
+rem ¸í·É¾î º¹Ã¢ ²û
 
-rem ### ë²„ì „ì •ë³´	:	v1.0.0
+rem ### ¹öÀüÁ¤º¸	:	v1.0.0
 rem ### updated by LJS 
 
 rem chcp 65001>nul
-rem ì°¸ê³  https://otrodevym.tistory.com/entry/windows-10-cmd-%EC%9D%B8%EC%BD%94%EB%94%A9-utf-8-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-949-65001-1
+rem Âü°í https://otrodevym.tistory.com/entry/windows-10-cmd-%EC%9D%B8%EC%BD%94%EB%94%A9-utf-8-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-949-65001-1
 
 setLocal EnableDelayedExpansion
-rem ì°¸ê³  https://kkamagistory.tistory.com/881
+rem Âü°í https://kkamagistory.tistory.com/881
 
-rem 0 = ê²€ì •ìƒ‰ 8 = íšŒìƒ‰
-rem 1 = íŒŒë‘ìƒ‰ 9 = ì—°í•œ íŒŒë‘ìƒ‰
-rem 2 = ì´ˆë¡ìƒ‰ A = ì—°í•œ ì´ˆë¡ìƒ‰
-rem 3 = ì˜¥ìƒ‰ B = ì—°í•œ ì˜¥ìƒ‰
-rem 4 = ë¹¨ê°•ìƒ‰ C = ì—°í•œ ë¹¨ê°•ìƒ‰
-rem 5 = ìì£¼ìƒ‰ D = ì—°í•œ ìì£¼ìƒ‰
-rem 6 = ë…¸ë‘ìƒ‰ E = ì—°í•œ ë…¸ë‘ìƒ‰
-rem 7 = í°ìƒ‰ F = ë°ì€ í°ìƒ‰
+rem 0 = °ËÁ¤»ö 8 = È¸»ö
+rem 1 = ÆÄ¶û»ö 9 = ¿¬ÇÑ ÆÄ¶û»ö
+rem 2 = ÃÊ·Ï»ö A = ¿¬ÇÑ ÃÊ·Ï»ö
+rem 3 = ¿Á»ö B = ¿¬ÇÑ ¿Á»ö
+rem 4 = »¡°­»ö C = ¿¬ÇÑ »¡°­»ö
+rem 5 = ÀÚÁÖ»ö D = ¿¬ÇÑ ÀÚÁÖ»ö
+rem 6 = ³ë¶û»ö E = ¿¬ÇÑ ³ë¶û»ö
+rem 7 = Èò»ö F = ¹àÀº Èò»ö
 rem color 09
-rem ì²«ì§¸ ìë¦¬ëŠ” ë°°ê²½, ë‘˜ì§¸ ìë¦¬ëŠ” ê¸€ììƒ‰
+rem Ã¹Â° ÀÚ¸®´Â ¹è°æ, µÑÂ° ÀÚ¸®´Â ±ÛÀÚ»ö
 
 rem mode con cols=60 lines=30
-rem ì½˜ì†”ì°½ í¬ê¸° ì§€ì •
+rem ÄÜ¼ÖÃ¢ Å©±â ÁöÁ¤
 
 rem ####################################
 
 cd /d %~dp0
-rem í˜„ì¬ íŒŒì¼ ìœ„ì¹˜ ê²½ë¡œë¥¼ ì‘ì—… ìœ„ì¹˜ë¡œ
+rem ÇöÀç ÆÄÀÏ À§Ä¡ °æ·Î¸¦ ÀÛ¾÷ À§Ä¡·Î
 
 
-title í˜„ì¬ ê²½ë¡œ : %cd%
+title ÇöÀç °æ·Î : %cd%
 rem title AutoStaging & AutoCommit
 
 :notice
