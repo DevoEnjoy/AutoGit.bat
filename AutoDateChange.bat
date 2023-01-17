@@ -62,7 +62,8 @@ echo 	실행할 기능을 선택하세요
 rem echo 	1. 전부 스테이징
 rem echo 	2. 오토 커밋
 rem echo 	3. 오토 푸시
-echo 	1. 커밋 날짜 변경(진입 직후 q 입력)
+echo 	1. 커밋 날짜 변경(진입 직후 q)
+echo 	2. 강제 푸시(날짜 변경 후 사용)
 echo 	q. 종료
 set /p choice=choice:
 
@@ -70,6 +71,7 @@ rem if %choice% equ 1 goto addAll
 rem if %choice% equ 2 goto autoCommit
 rem if %choice% equ 3 goto autoPush
 if %choice% equ 1 goto changeDate
+if %choice% equ 2 goto forcePush
 if %choice% equ q exit
 cls
 goto start
@@ -85,35 +87,65 @@ echo 	ex) 2023 0117 1817
 set /p changedDate=입력 : 
 cls
 rem set hh=%time:~0,2%
-set %year%=%changedDate:~0,4%
-set %month%=%changedDate:~6,2%
-set %day%=%changedDate:~7,2%
-set %times1%=%changedDate:~11,2%
-set %times2%=%changedDate:~13,2%
+set year=%changedDate:~0,4%
+set month=%changedDate:~5,2%
+set day=%changedDate:~7,2%
+set times1=%changedDate:~10,2%
+set times2=%changedDate:~12,2%
 
+if %month% equ 01 set monthStr=Jan
+if %month% equ 02 set monthStr=Feb
+if %month% equ 03 set monthStr=Mar
+if %month% equ 04 set monthStr=Apr
+if %month% equ 05 set monthStr=May
+if %month% equ 06 set monthStr=Jun
+if %month% equ 07 set monthStr=Jul
+if %month% equ 08 set monthStr=Aug
+if %month% equ 09 set monthStr=Sep
+if %month% equ 10 set monthStr=Oct
+if %month% equ 11 set monthStr=Nov
+if %month% equ 12 set monthStr=Dec
 
-if %month:~0,1% equ 0 (
-	if %month:~1,2% equ 1 set month=Jan
-	if %month:~1,2% equ 2 set month=Feb
-	if %month:~1,2% equ 3 set month=Mar
-	if %month:~1,2% equ 4 set month=Apr
-	if %month:~1,2% equ 5 set month=May
-	if %month:~1,2% equ 6 set month=Jun
-	if %month:~1,2% equ 7 set month=Jul
-	if %month:~1,2% equ 8 set month=Aug
-	if %month:~1,2% equ 9 set month=Sep
-)else (
-	rem 10월
-	if %month:~1,2% equ 0 set month=Oct
-	if %month:~1,2% equ 1 set month=Nov
-	if %month:~1,2% equ 2 set month=Dec
-)
+rem if %month:~0,1% equ 0 (
+rem 	if %month:~1,1% equ 1 set month=Jan
+rem 	if %month:~1,1% equ 2 set month=Feb
+rem 	if %month:~1,1% equ 3 set month=Mar
+rem 	if %month:~1,1% equ 4 set month=Apr
+rem 	if %month:~1,1% equ 5 set month=May
+rem 	if %month:~1,1% equ 6 set month=Jun
+rem 	if %month:~1,1% equ 7 set month=Jul
+rem 	if %month:~1,1% equ 8 set month=Aug
+rem 	if %month:~1,1% equ 9 set month=Sep
+rem )else (
+rem 	rem 10월
+rem 	if %month:~1,1% equ 0 set month=Oct
+rem 	if %month:~1,1% equ 1 set month=Nov
+rem 	if %month:~1,1% equ 2 set month=Dec
+rem )
 
-echo 	아래 명령어를 사용합니다
-echo 	 git commit --amend --no-edit --date "%month% %day% %times1%:%times2%%:31 %year% +0000"
+echo 	아래와 같이 명령어를 사용합니다
+echo.
+echo 	git commit --amend --no-edit --date "%monthStr% %day% %times1%:%times2%:31 %year% +0000"
+echo 	GIT_COMMITTER_DATE="Thu %day% %monthStr% %year% %times1%:%times2%:15 KST" git commit --amend --no-edit
+echo.
 echo 	사용하려면 엔터, 취소하려면 창을 닫아주세요
-
+pause
 goto start
+
+:forcePush
+cls
+echo.
+echo 	강제 푸시입니다. 아래 명령어를 사용합니다
+echo 	git push -f origin master
+echo 	진행하려면 엔터, 취소 혹은 따로 입력하려면 창을 닫아주세요
+pause
+cls
+git push -f origin master
+pause
+goto start
+
+
+
 
 rem :addAll
 rem git add .
