@@ -62,7 +62,7 @@ echo 	실행할 기능을 선택하세요
 rem echo 	1. 전부 스테이징
 rem echo 	2. 오토 커밋
 rem echo 	3. 오토 푸시
-echo 	1. 커밋 날짜 변경
+echo 	1. 커밋 날짜 변경(진입 직후 q 입력)
 echo 	q. 종료
 set /p choice=choice:
 
@@ -77,6 +77,7 @@ goto start
 :changeDate
 cls
 git log
+
 echo 	날짜 변경 기능입니다.
 echo 	가장 최근 커밋만 변경 가능합니다.
 echo 	아래 형식에 맞게 변경할 날짜 및 시간을 입력해 주세요(연 월일 시분)
@@ -92,20 +93,20 @@ set %times2%=%changedDate:~13,2%
 
 
 if %month:~0,1% equ 0 (
-	if %month:~0,2% equ 1 set month=Jan
-	if %month:~0,2% equ 2 set month=Feb
-	if %month:~0,2% equ 3 set month=Mar
-	if %month:~0,2% equ 4 set month=Apr
-	if %month:~0,2% equ 5 set month=May
-	if %month:~0,2% equ 6 set month=Jun
-	if %month:~0,2% equ 7 set month=Jul
-	if %month:~0,2% equ 8 set month=Aug
-	if %month:~0,2% equ 9 set month=Sep
+	if %month:~1,2% equ 1 set month=Jan
+	if %month:~1,2% equ 2 set month=Feb
+	if %month:~1,2% equ 3 set month=Mar
+	if %month:~1,2% equ 4 set month=Apr
+	if %month:~1,2% equ 5 set month=May
+	if %month:~1,2% equ 6 set month=Jun
+	if %month:~1,2% equ 7 set month=Jul
+	if %month:~1,2% equ 8 set month=Aug
+	if %month:~1,2% equ 9 set month=Sep
 )else (
 	rem 10월
-	if %month:~0,2% equ 0 set month=Oct
-	if %month:~0,2% equ 1 set month=Nov
-	if %month:~0,2% equ 2 set month=Dec
+	if %month:~1,2% equ 0 set month=Oct
+	if %month:~1,2% equ 1 set month=Nov
+	if %month:~1,2% equ 2 set month=Dec
 )
 
 echo 	아래 명령어를 사용합니다
