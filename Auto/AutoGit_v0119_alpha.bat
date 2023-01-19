@@ -1,7 +1,7 @@
 @echo off
 rem 명령어 복창 끔
 
-rem ### 버전정보	:	v0118_beta
+rem ### 버전정보	:	v0119_alpha
 rem ### updated by LJS 
 
 rem chcp 65001>nul
@@ -37,6 +37,8 @@ rem 	230116 v0116_alpha
 rem 		- add, restore, commit, push 구현
 rem		230118 v0118_beta
 rem			- hotfixes
+rem		230119 v0119_alpha
+rem			- add changeDate
 
 :start
 set choice=1
@@ -52,7 +54,7 @@ echo 	[2]. git add(스테이징)
 echo 	[3]. git restore(스테이징 내리기)
 echo 	[4]. git commit(커밋)
 echo 	[5]. git push(푸시)
-echo 	[6]. (※미구현)커밋 날짜 변경
+echo 	[6]. 커밋 날짜 변경
 echo 	[q]. 프로그램 종료
 echo.
 set /p choice=선택(예: 1 엔터) :
@@ -62,7 +64,7 @@ if %choice% equ 2 goto add
 if %choice% equ 3 goto restore
 if %choice% equ 4 goto commit
 if %choice% equ 5 goto push
-if %choice% equ 6 goto date
+if %choice% equ 6 goto changeDate
 if /i %choice% equ q exit
 goto start
 
@@ -290,6 +292,92 @@ cls
 goto start
 
 
-:date
+:changeDate
+cls
+FOR /F "tokens=1-4 delims=- " %%i IN ('date /t') DO SET yyyymmdd=%%i%%j%%k
+REM FOR /F "tokens=2-6 delims=/ " %%i IN ('date /t') DO SET yyyymmdd=%%k%%i%%j
+rem ECHO %yyyymmdd%
+
+set tm=%time%
+set hh=%time:~0,2%
+set mm=%time:~3,2%
+set ss=%time:~6,2%
+set hh1=%time:~0,1%
+set hh2=%time:~1,1%
+if "%hh1%" == " " set hh=0%hh2%
+
+rem echo original time = %tm%
+rem echo transformed time = %hh%%mm%
+:choice
+echo 	오늘 날짜 : %yyyymmdd%
+echo 	현재 시각 : %hh%%mm%
+echo.
+
+echo 	실행할 기능을 선택하세요
+echo 	1. 커밋 날짜 변경(진입 직후 q)
+echo 	2. 강제 푸시(날짜 변경 후 사용)
+echo 	q. 종료
+set /p choice=choice:
+
+rem if %choice% equ 1 goto addAll
+rem if %choice% equ 2 goto autoCommit
+rem if %choice% equ 3 goto autoPush
+if %choice% equ 1 goto changeDate
+if %choice% equ 2 goto forcePush
+if %choice% equ q exit
+cls
+goto start
+
+:changeDate
+cls
+git log
+
+echo 	날짜 변경 기능입니다.
+echo 	가장 최근 커밋만 변경 가능합니다.
+echo 	아래 형식에 맞게 변경할 날짜 및 시간을 입력해 주세요(연 월일 시분)
+echo 	ex) 2023 0117 1817
+set /p changedDate=입력 : 
+cls
+rem set hh=%time:~0,2%
+set year=%changedDate:~0,4%
+set month=%changedDate:~5,2%
+set day=%changedDate:~7,2%
+set times1=%changedDate:~10,2%
+set times2=%changedDate:~12,2%
+
+if %month% equ 01 set monthStr=Jan
+if %month% equ 02 set monthStr=Feb
+if %month% equ 03 set monthStr=Mar
+if %month% equ 04 set monthStr=Apr
+if %month% equ 05 set monthStr=May
+if %month% equ 06 set monthStr=Jun
+if %month% equ 07 set monthStr=Jul
+if %month% equ 08 set monthStr=Aug
+if %month% equ 09 set monthStr=Sep
+if %month% equ 10 set monthStr=Oct
+if %month% equ 11 set monthStr=Nov
+if %month% equ 12 set monthStr=Dec
+
+
+echo 	아래와 같이 명령어를 사용합니다
+echo.
+echo 	git commit --amend --no-edit --date "%monthStr% %day% %times1%:%times2%:31 %year% +0000"
+echo 	GIT_COMMITTER_DATE="Thu %day% %monthStr% %year% %times1%:%times2%:15 KST" git commit --amend --no-edit
+echo.
+echo 	사용하려면 엔터, 취소하려면 창을 닫아주세요
+pause
+goto start
+
+:forcePush
+cls
+echo.
+echo 	강제 푸시입니다. 아래 명령어를 사용합니다
+echo 	git push -f origin master
+echo 	진행하려면 엔터, 취소 혹은 따로 입력하려면 창을 닫아주세요
+pause
+cls
+git push -f origin master
+pause
+
 goto start
 
