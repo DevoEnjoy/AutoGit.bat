@@ -191,7 +191,7 @@ echo ----------------------------------------------------------------------
 git status
 echo ----------------------------------------------------------------------
 echo 	-커밋 메시지 입력-
-rem echo 	1. 직접 입력
+echo 	[1]. 직접 입력
 echo 	[2]. 오토 커밋
 echo 		형식:	"yyyyMMdd hhmm AutoCommit"
 echo 		ex)	"20230116 1840 AutoCommit"
@@ -205,16 +205,17 @@ pause
 goto commit
 
 :customCommit
-set commitMsg=:q
+set commitMsg=
 cls
 echo ----------------------------------------------------------------------
 git status
 echo ----------------------------------------------------------------------
 echo 	커밋할 내용을 입력하세요
-echo 	[:q]. 메인메뉴로
+echo 	[q]. 메인메뉴로
 set /p commitMsg=입력 : 
 rem if commitMsg== echo 	잘못 입력하셨습니다&pause&goto customCommit
-if %commitMsg% equ :q goto start
+if /i %commitMsg% equ q goto start
+pause
 echo 	[git commit -m "%commitMsg%"]
 echo 	위와 같이 명령어를 실행합니다.
 set /p yon=[y/n]
