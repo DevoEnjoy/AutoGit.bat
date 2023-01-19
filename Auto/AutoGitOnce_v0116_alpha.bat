@@ -52,7 +52,7 @@ set hh1=%time:~0,1%
 set hh2=%time:~1,1%
 if "%hh1%" == " " set hh=0%hh2%
 cls
-
+rem
 :start
 echo 	[git add .]
 echo 	[git commit -m "auto push %yyyymmdd% %hh%%mm%"]
@@ -60,7 +60,7 @@ echo 	[git push origin master]
 echo 	위 명령어를 한꺼번에 실행하는 프로그램입니다.
 echo 	실행하려면 엔터, 취소하려면 이 창을 닫아주세요
 pause
-cls
+
 git add .
 git commit -m "auto push %yyyymmdd% %hh%%mm%"
 git push origin master
