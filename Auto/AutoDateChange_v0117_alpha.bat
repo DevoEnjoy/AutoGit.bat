@@ -1,36 +1,36 @@
 @echo off
-rem ¸í·É¾î º¹Ã¢ ²û
+rem ëª…ë ¹ì–´ ë³µì°½ ë”
 
-rem ### ¹öÀüÁ¤º¸	:	v1.0.0
+rem ### ë²„ì „ì •ë³´	:	v1.0.0
 rem ### updated by LJS 
 
 rem chcp 65001>nul
-rem Âü°í https://otrodevym.tistory.com/entry/windows-10-cmd-%EC%9D%B8%EC%BD%94%EB%94%A9-utf-8-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-949-65001-1
+rem ì°¸ê³  https://otrodevym.tistory.com/entry/windows-10-cmd-%EC%9D%B8%EC%BD%94%EB%94%A9-utf-8-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-949-65001-1
 
 setLocal EnableDelayedExpansion
-rem Âü°í https://kkamagistory.tistory.com/881
+rem ì°¸ê³  https://kkamagistory.tistory.com/881
 
-rem 0 = °ËÁ¤»ö 8 = È¸»ö
-rem 1 = ÆÄ¶û»ö 9 = ¿¬ÇÑ ÆÄ¶û»ö
-rem 2 = ÃÊ·Ï»ö A = ¿¬ÇÑ ÃÊ·Ï»ö
-rem 3 = ¿Á»ö B = ¿¬ÇÑ ¿Á»ö
-rem 4 = »¡°­»ö C = ¿¬ÇÑ »¡°­»ö
-rem 5 = ÀÚÁÖ»ö D = ¿¬ÇÑ ÀÚÁÖ»ö
-rem 6 = ³ë¶û»ö E = ¿¬ÇÑ ³ë¶û»ö
-rem 7 = Èò»ö F = ¹àÀº Èò»ö
+rem 0 = ê²€ì •ìƒ‰ 8 = íšŒìƒ‰
+rem 1 = íŒŒë‘ìƒ‰ 9 = ì—°í•œ íŒŒë‘ìƒ‰
+rem 2 = ì´ˆë¡ìƒ‰ A = ì—°í•œ ì´ˆë¡ìƒ‰
+rem 3 = ì˜¥ìƒ‰ B = ì—°í•œ ì˜¥ìƒ‰
+rem 4 = ë¹¨ê°•ìƒ‰ C = ì—°í•œ ë¹¨ê°•ìƒ‰
+rem 5 = ìì£¼ìƒ‰ D = ì—°í•œ ìì£¼ìƒ‰
+rem 6 = ë…¸ë‘ìƒ‰ E = ì—°í•œ ë…¸ë‘ìƒ‰
+rem 7 = í°ìƒ‰ F = ë°ì€ í°ìƒ‰
 rem color 09
-rem Ã¹Â° ÀÚ¸®´Â ¹è°æ, µÑÂ° ÀÚ¸®´Â ±ÛÀÚ»ö
+rem ì²«ì§¸ ìë¦¬ëŠ” ë°°ê²½, ë‘˜ì§¸ ìë¦¬ëŠ” ê¸€ììƒ‰
 
 rem mode con cols=60 lines=30
-rem ÄÜ¼ÖÃ¢ Å©±â ÁöÁ¤
+rem ì½˜ì†”ì°½ í¬ê¸° ì§€ì •
 
 rem ####################################
 
 cd /d %~dp0
-rem ÇöÀç ÆÄÀÏ À§Ä¡ °æ·Î¸¦ ÀÛ¾÷ À§Ä¡·Î
+rem í˜„ì¬ íŒŒì¼ ìœ„ì¹˜ ê²½ë¡œë¥¼ ì‘ì—… ìœ„ì¹˜ë¡œ
 
 
-title ÇöÀç °æ·Î : %cd%
+title í˜„ì¬ ê²½ë¡œ : %cd%
 rem title AutoStaging & AutoCommit
 
 :notice
@@ -56,17 +56,17 @@ if "%hh1%" == " " set hh=0%hh2%
 rem echo original time = %tm%
 rem echo transformed time = %hh%%mm%
 :choice
-echo 	¿À´Ã ³¯Â¥ : %yyyymmdd%
-echo 	ÇöÀç ½Ã°¢ : %hh%%mm%
+echo 	ì˜¤ëŠ˜ ë‚ ì§œ : %yyyymmdd%
+echo 	í˜„ì¬ ì‹œê° : %hh%%mm%
 echo.
 
-echo 	½ÇÇàÇÒ ±â´ÉÀ» ¼±ÅÃÇÏ¼¼¿ä
-rem echo 	1. ÀüºÎ ½ºÅ×ÀÌÂ¡
-rem echo 	2. ¿ÀÅä Ä¿¹Ô
-rem echo 	3. ¿ÀÅä Çª½Ã
-echo 	1. Ä¿¹Ô ³¯Â¥ º¯°æ(ÁøÀÔ Á÷ÈÄ q)
-echo 	2. °­Á¦ Çª½Ã(³¯Â¥ º¯°æ ÈÄ »ç¿ë)
-echo 	q. Á¾·á
+echo 	ì‹¤í–‰í•  ê¸°ëŠ¥ì„ ì„ íƒí•˜ì„¸ìš”
+rem echo 	1. ì „ë¶€ ìŠ¤í…Œì´ì§•
+rem echo 	2. ì˜¤í†  ì»¤ë°‹
+rem echo 	3. ì˜¤í†  í‘¸ì‹œ
+echo 	1. ì»¤ë°‹ ë‚ ì§œ ë³€ê²½(ì§„ì… ì§í›„ q)
+echo 	2. ê°•ì œ í‘¸ì‹œ(ë‚ ì§œ ë³€ê²½ í›„ ì‚¬ìš©)
+echo 	q. ì¢…ë£Œ
 set /p choice=choice:
 
 rem if %choice% equ 1 goto addAll
@@ -82,11 +82,11 @@ goto start
 cls
 git log
 echo ----------------------------------------------------------------------
-echo 	³¯Â¥ º¯°æ ±â´ÉÀÔ´Ï´Ù.
-echo 	°¡Àå ÃÖ±Ù Ä¿¹Ô¸¸ º¯°æ °¡´ÉÇÕ´Ï´Ù.
-echo 	¾Æ·¡ Çü½Ä¿¡ ¸Â°Ô º¯°æÇÒ ³¯Â¥ ¹× ½Ã°£À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä(¿¬ ¿ùÀÏ ½ÃºĞ)
+echo 	ë‚ ì§œ ë³€ê²½ ê¸°ëŠ¥ì…ë‹ˆë‹¤.
+echo 	ê°€ì¥ ìµœê·¼ ì»¤ë°‹ë§Œ ë³€ê²½ ê°€ëŠ¥í•©ë‹ˆë‹¤.
+echo 	ì•„ë˜ í˜•ì‹ì— ë§ê²Œ ë³€ê²½í•  ë‚ ì§œ ë° ì‹œê°„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”(ì—° ì›”ì¼ ì‹œë¶„)
 echo 	ex) 2023 0117 1817
-set /p changedDate=ÀÔ·Â : 
+set /p changedDate=ì…ë ¥ : 
 cls
 rem set hh=%time:~0,2%
 set year=%changedDate:~0,4%
@@ -119,27 +119,27 @@ rem 	if %month:~1,1% equ 7 set month=Jul
 rem 	if %month:~1,1% equ 8 set month=Aug
 rem 	if %month:~1,1% equ 9 set month=Sep
 rem )else (
-rem 	rem 10¿ù
+rem 	rem 10ì›”
 rem 	if %month:~1,1% equ 0 set month=Oct
 rem 	if %month:~1,1% equ 1 set month=Nov
 rem 	if %month:~1,1% equ 2 set month=Dec
 rem )
 
-echo 	¾Æ·¡¿Í °°ÀÌ ¸í·É¾î¸¦ »ç¿ëÇÕ´Ï´Ù
+echo 	ì•„ë˜ì™€ ê°™ì´ ëª…ë ¹ì–´ë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤
 echo.
 echo 	git commit --amend --no-edit --date "%monthStr% %day% %times1%:%times2%:31 %year% +0000"
 echo 	GIT_COMMITTER_DATE="Thu %day% %monthStr% %year% %times1%:%times2%:15 KST" git commit --amend --no-edit
 echo.
-echo 	»ç¿ëÇÏ·Á¸é ¿£ÅÍ, Ãë¼ÒÇÏ·Á¸é Ã¢À» ´İ¾ÆÁÖ¼¼¿ä
+echo 	ì‚¬ìš©í•˜ë ¤ë©´ ì—”í„°, ì·¨ì†Œí•˜ë ¤ë©´ ì°½ì„ ë‹«ì•„ì£¼ì„¸ìš”
 pause
 goto start
 
 :forcePush
 cls
 echo.
-echo 	°­Á¦ Çª½ÃÀÔ´Ï´Ù. ¾Æ·¡ ¸í·É¾î¸¦ »ç¿ëÇÕ´Ï´Ù
+echo 	ê°•ì œ í‘¸ì‹œì…ë‹ˆë‹¤. ì•„ë˜ ëª…ë ¹ì–´ë¥¼ ì‚¬ìš©í•©ë‹ˆë‹¤
 echo 	git push -f origin master
-echo 	ÁøÇàÇÏ·Á¸é ¿£ÅÍ, Ãë¼Ò È¤Àº µû·Î ÀÔ·ÂÇÏ·Á¸é Ã¢À» ´İ¾ÆÁÖ¼¼¿ä
+echo 	ì§„í–‰í•˜ë ¤ë©´ ì—”í„°, ì·¨ì†Œ í˜¹ì€ ë”°ë¡œ ì…ë ¥í•˜ë ¤ë©´ ì°½ì„ ë‹«ì•„ì£¼ì„¸ìš”
 pause
 cls
 git push -f origin master
@@ -153,7 +153,7 @@ rem :addAll
 rem git add .
 rem pause
 rem cls
-rem echo 	ÇöÀç »óÅÂ : 
+rem echo 	í˜„ì¬ ìƒíƒœ : 
 rem git status
 rem pause
 rem 
@@ -161,16 +161,16 @@ rem goto choice
 rem 
 rem :autoCommit
 rem echo 	"auto push %yyyymmdd%%hh%%mm%"
-rem echo 	À§ ³»¿ëÀ¸·Î Ä¿¹ÔÇÕ´Ï´Ù
-rem echo 	½ÇÇàÀº ¿£ÅÍ, Ãë¼ÒÇÏ·Á¸é Ã¢À» ²¨ÁÖ¼¼¿ä
+rem echo 	ìœ„ ë‚´ìš©ìœ¼ë¡œ ì»¤ë°‹í•©ë‹ˆë‹¤
+rem echo 	ì‹¤í–‰ì€ ì—”í„°, ì·¨ì†Œí•˜ë ¤ë©´ ì°½ì„ êº¼ì£¼ì„¸ìš”
 rem pause
 rem git commit -m "auto push %yyyymmdd%%hh%%mm%"
 rem 
 rem goto choice
 rem 
 rem :autoPush
-rem echo 	Ä¿¹ÔÇÑ ³»¿ëÀ» Çª½ÃÇÕ´Ï´Ù
-rem echo 	½ÇÇàÀº ¿£ÅÍ, Ãë¼ÒÇÏ·Á¸é Ã¢À» ²¨ÁÖ¼¼¿ä
+rem echo 	ì»¤ë°‹í•œ ë‚´ìš©ì„ í‘¸ì‹œí•©ë‹ˆë‹¤
+rem echo 	ì‹¤í–‰ì€ ì—”í„°, ì·¨ì†Œí•˜ë ¤ë©´ ì°½ì„ êº¼ì£¼ì„¸ìš”
 rem 
 rem pause
 rem 

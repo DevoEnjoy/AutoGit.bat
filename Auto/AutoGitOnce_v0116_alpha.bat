@@ -1,43 +1,43 @@
 @echo off
-rem ¸í·É¾î º¹Ã¢ ²û
+rem ëª…ë ¹ì–´ ë³µì°½ ë”
 
-rem ### ¹öÀüÁ¤º¸	:	v0116_alpha
+rem ### ë²„ì „ì •ë³´	:	v0116_alpha
 rem ### updated by LJS 
 
 rem chcp 65001>nul
-rem Âü°í https://otrodevym.tistory.com/entry/windows-10-cmd-%EC%9D%B8%EC%BD%94%EB%94%A9-utf-8-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-949-65001-1
+rem ì°¸ê³  https://otrodevym.tistory.com/entry/windows-10-cmd-%EC%9D%B8%EC%BD%94%EB%94%A9-utf-8-%EC%84%A4%EC%A0%95-%EB%B0%A9%EB%B2%95-949-65001-1
 
 setLocal EnableDelayedExpansion
-rem Âü°í https://kkamagistory.tistory.com/881
+rem ì°¸ê³  https://kkamagistory.tistory.com/881
 
-rem 0 = °ËÁ¤»ö 8 = È¸»ö
-rem 1 = ÆÄ¶û»ö 9 = ¿¬ÇÑ ÆÄ¶û»ö
-rem 2 = ÃÊ·Ï»ö A = ¿¬ÇÑ ÃÊ·Ï»ö
-rem 3 = ¿Á»ö B = ¿¬ÇÑ ¿Á»ö
-rem 4 = »¡°­»ö C = ¿¬ÇÑ »¡°­»ö
-rem 5 = ÀÚÁÖ»ö D = ¿¬ÇÑ ÀÚÁÖ»ö
-rem 6 = ³ë¶û»ö E = ¿¬ÇÑ ³ë¶û»ö
-rem 7 = Èò»ö F = ¹àÀº Èò»ö
+rem 0 = ê²€ì •ìƒ‰ 8 = íšŒìƒ‰
+rem 1 = íŒŒë‘ìƒ‰ 9 = ì—°í•œ íŒŒë‘ìƒ‰
+rem 2 = ì´ˆë¡ìƒ‰ A = ì—°í•œ ì´ˆë¡ìƒ‰
+rem 3 = ì˜¥ìƒ‰ B = ì—°í•œ ì˜¥ìƒ‰
+rem 4 = ë¹¨ê°•ìƒ‰ C = ì—°í•œ ë¹¨ê°•ìƒ‰
+rem 5 = ìì£¼ìƒ‰ D = ì—°í•œ ìì£¼ìƒ‰
+rem 6 = ë…¸ë‘ìƒ‰ E = ì—°í•œ ë…¸ë‘ìƒ‰
+rem 7 = í°ìƒ‰ F = ë°ì€ í°ìƒ‰
 rem color 09
-rem Ã¹Â° ÀÚ¸®´Â ¹è°æ, µÑÂ° ÀÚ¸®´Â ±ÛÀÚ»ö
+rem ì²«ì§¸ ìë¦¬ëŠ” ë°°ê²½, ë‘˜ì§¸ ìë¦¬ëŠ” ê¸€ììƒ‰
 
 rem mode con cols=60 lines=30
-rem ÄÜ¼ÖÃ¢ Å©±â ÁöÁ¤
+rem ì½˜ì†”ì°½ í¬ê¸° ì§€ì •
 
 rem ####################################
 
 cd /d %~dp0
-rem ÇöÀç ÆÄÀÏ À§Ä¡ °æ·Î¸¦ ÀÛ¾÷ À§Ä¡·Î
+rem í˜„ì¬ íŒŒì¼ ìœ„ì¹˜ ê²½ë¡œë¥¼ ì‘ì—… ìœ„ì¹˜ë¡œ
 
 
-title ÇöÀç °æ·Î : %cd%
+title í˜„ì¬ ê²½ë¡œ : %cd%
 rem title AutoStaging & AutoCommit
 :notice
 rem 	230116 v0116_alpha
-rem 		- add, restore, commit, push ±¸Çö
+rem 		- add, restore, commit, push êµ¬í˜„
 rem 	autoAddCommitPush
-rem 		- ±Ø´ÜÀûÀ¸·Î Âª°Ô ¸¸µç ¹öÀü.
-rem 		- ¸ğµç º¯°æ»çÇ× ½ºÅ×ÀÌÂ¡, ÀÚµ¿Ä¿¹Ô, ÀÚµ¿ Çª½ÃÇÑ´Ù.
+rem 		- ê·¹ë‹¨ì ìœ¼ë¡œ ì§§ê²Œ ë§Œë“  ë²„ì „.
+rem 		- ëª¨ë“  ë³€ê²½ì‚¬í•­ ìŠ¤í…Œì´ì§•, ìë™ì»¤ë°‹, ìë™ í‘¸ì‹œí•œë‹¤.
 
 :makeDate
 FOR /F "tokens=1-4 delims=- " %%i IN ('date /t') DO SET yyyymmdd=%%i%%j%%k
@@ -57,15 +57,15 @@ rem
 echo 	[git add .]
 echo 	[git commit -m "auto push %yyyymmdd% %hh%%mm%"]
 echo 	[git push origin master]
-echo 	À§ ¸í·É¾î¸¦ ÇÑ²¨¹ø¿¡ ½ÇÇàÇÏ´Â ÇÁ·Î±×·¥ÀÔ´Ï´Ù.
-echo 	½ÇÇàÇÏ·Á¸é ¿£ÅÍ, Ãë¼ÒÇÏ·Á¸é ÀÌ Ã¢À» ´İ¾ÆÁÖ¼¼¿ä
+echo 	ìœ„ ëª…ë ¹ì–´ë¥¼ í•œêº¼ë²ˆì— ì‹¤í–‰í•˜ëŠ” í”„ë¡œê·¸ë¨ì…ë‹ˆë‹¤.
+echo 	ì‹¤í–‰í•˜ë ¤ë©´ ì—”í„°, ì·¨ì†Œí•˜ë ¤ë©´ ì´ ì°½ì„ ë‹«ì•„ì£¼ì„¸ìš”
 pause
 
 git add .
 git commit -m "auto push %yyyymmdd% %hh%%mm%"
 git push origin master
 echo 	----------------------------------------------
-echo 	¼º°ø ¿©ºÎ¿Í ¹«°üÇÏ°Ô, ÀÛ¾÷ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.
-echo 	À§ÀÇ ·Î±×¸¦ Âü°íÇØÁÖ¼¼¿ä.
+echo 	ì„±ê³µ ì—¬ë¶€ì™€ ë¬´ê´€í•˜ê²Œ, ì‘ì—…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.
+echo 	ìœ„ì˜ ë¡œê·¸ë¥¼ ì°¸ê³ í•´ì£¼ì„¸ìš”.
 echo 	----------------------------------------------
 pause

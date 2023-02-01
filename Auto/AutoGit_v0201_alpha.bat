@@ -1,7 +1,7 @@
 @echo off
 rem 명령어 복창 끔
 
-rem ### 버전정보	:	v0119_alpha
+rem ### 버전정보	:	v0201_alpha
 rem ### updated by LJS 
 
 rem chcp 65001>nul
@@ -25,6 +25,7 @@ rem mode con cols=60 lines=30
 rem 콘솔창 크기 지정
 
 rem ####################################
+rem 		업데이트 23.02.01 커스텀 커밋 수정
 
 cd /d %~dp0
 rem 현재 파일 위치 경로를 작업 위치로
@@ -226,7 +227,7 @@ goto start
 
 :doCommit
 cls
-git commit -m "%commitMsg%"
+git commit -m ^"%commitMsg%^"
 pause
 cls
 echo ----------------------------------------------------------------------
